@@ -1,0 +1,162 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-08-07 17:25+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\models.py:8
+msgid "testing"
+msgstr "тестирование"
+
+#: .\models.py:9
+msgid "certification"
+msgstr "сертификация"
+
+#: .\models.py:13
+msgid "main"
+msgstr "основная страница"
+
+#: .\models.py:14
+msgid "accreditation"
+msgstr "описание аккрредитации"
+
+#: .\models.py:25
+msgid "region"
+msgstr "регион"
+
+#: .\models.py:26
+msgid "city"
+msgstr "город"
+
+#: .\models.py:27
+msgid "address"
+msgstr "адресс"
+
+#: .\models.py:28
+msgid "phone"
+msgstr "телефон"
+
+#: .\models.py:29
+msgid "email"
+msgstr "e-mail"
+
+#: .\models.py:31
+msgid "place_src"
+msgstr "ссылка на карту"
+
+#: .\models.py:35
+msgid "contact"
+msgstr "контакт"
+
+#: .\models.py:36
+msgid "contacts"
+msgstr "контакты"
+
+#: .\models.py:43 .\models.py:61 .\models.py:87 .\models.py:122
+msgid "title"
+msgstr "заголовок"
+
+#: .\models.py:44
+msgid "service_type"
+msgstr "тип услуги"
+
+#: .\models.py:45 .\models.py:62 .\models.py:75 .\models.py:88
+msgid "image"
+msgstr "картинка"
+
+#: .\models.py:46
+msgid "description"
+msgstr "описание"
+
+#: .\models.py:47
+msgid "image_document"
+msgstr "изображение документа"
+
+#: .\models.py:48
+msgid "requirements"
+msgstr "зависимости"
+
+#: .\models.py:49
+msgid "price"
+msgstr "цена"
+
+#: .\models.py:53
+msgid "service"
+msgstr "услуга"
+
+#: .\models.py:54
+msgid "services"
+msgstr "услуги"
+
+#: .\models.py:66
+msgid "client"
+msgstr "клиент"
+
+#: .\models.py:67
+msgid "clients"
+msgstr "клиенты"
+
+#: .\models.py:74
+msgid "label"
+msgstr "заголовок"
+
+#: .\models.py:79
+msgid "certificate"
+msgstr "сертификат"
+
+#: .\models.py:80
+msgid "certificates"
+msgstr "сертификаты"
+
+#: .\models.py:89 .\models.py:107 .\models.py:123
+msgid "text"
+msgstr "текст"
+
+#: .\models.py:93
+msgid "news"
+msgstr "новость"
+
+#: .\models.py:94
+msgid "newss"
+msgstr "новости"
+
+#: .\models.py:104 .\models.py:105 .\models.py:106
+msgid "contact_name"
+msgstr "название контакта"
+
+#: .\models.py:109
+msgid "created_at"
+msgstr "создана"
+
+#: .\models.py:113
+msgid "order"
+msgstr "заявка"
+
+#: .\models.py:114
+msgid "orders"
+msgstr "заявки"
+
+#: .\models.py:121
+msgid "info_type"
+msgstr "тип описания"
+
+#: .\models.py:127
+msgid "info"
+msgstr "описание"
+
+#: .\models.py:128
+msgid "infos"
+msgstr "описании"
