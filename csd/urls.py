@@ -9,7 +9,7 @@ router = routers.DefaultRouter()
 router.register('services', ServiceViewSet, 'Services')
 router.register('news', NewsViewSet, 'News')
 router.register('accreditation/certificates', CertificateViewSet, 'Certificate')
-router.register('clietns', ClientViewSet, 'Clietns')
+router.register('clients', ClientViewSet, 'Clietns')
 router.register('main/contacts', ContactViewSet, 'Contacts'),
 
 urlpatterns = router.urls
