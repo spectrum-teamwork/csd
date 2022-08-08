@@ -8,7 +8,6 @@ RUN apt-get update -y && apt-get install -y gettext
 ENV PYTHONDONTWRITEBYTECODE=1
 ENV PYTHONUNBUFFERED=1
 
-
 COPY requirements.txt .
 RUN python -m pip install -r requirements.txt
 
@@ -18,10 +17,7 @@ COPY . /app
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-ENV DJANGO_SUPERUSER_PASSWORD=adminpass
-
 RUN python manage.py migrate
-RUN python manage.py createsuperuser --noinput --username admin --email admin@csd-lab.ru
 
 RUN cd csd/ && django-admin compilemessages && cd ..
 
