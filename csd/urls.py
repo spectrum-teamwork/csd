@@ -6,16 +6,16 @@ from .api import (AccreditationInfotApiView, CertificateViewSet, ClientViewSet, 
                   MainInfotApiView, NewsViewSet, ServiceViewSet, OrderApiView)
 
 router = routers.DefaultRouter()
-router.register('api/v1/services', ServiceViewSet, 'Services')
-router.register('api/v1/news', NewsViewSet, 'News')
-router.register('api/v1/accreditation/certificates', CertificateViewSet, 'Certificate')
-router.register('api/v1/clietns', ClientViewSet, 'Clietns')
-router.register('api/v1/main/contacts', ContactViewSet, 'Contacts'),
+router.register('services', ServiceViewSet, 'Services')
+router.register('news', NewsViewSet, 'News')
+router.register('accreditation/certificates', CertificateViewSet, 'Certificate')
+router.register('clietns', ClientViewSet, 'Clietns')
+router.register('main/contacts', ContactViewSet, 'Contacts'),
 
 urlpatterns = router.urls
 
 urlpatterns += [
-    path('api/v1/main/info', MainInfotApiView.as_view()),
-    path('api/v1/accreditation/info', AccreditationInfotApiView.as_view()),
-    path('api/v1/orders/order', OrderApiView.as_view()),
+    path('main/info', MainInfotApiView.as_view()),
+    path('accreditation/info', AccreditationInfotApiView.as_view()),
+    path('orders/order', OrderApiView.as_view()),
 ]

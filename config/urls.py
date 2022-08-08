@@ -20,5 +20,5 @@ from django.urls import include, path
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('images/<str:image_name>', views.images),
-    path('', include('csd.urls')),
+    path('api/v1/', include('csd.urls')),
 ]
