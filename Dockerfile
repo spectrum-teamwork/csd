@@ -17,6 +17,8 @@ COPY . /app
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
+RUN python manage.py collectstatic
+
 RUN python manage.py migrate
 
 RUN cd csd/ && django-admin compilemessages && cd ..
