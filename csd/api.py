@@ -54,6 +54,12 @@ class NewsViewSet(viewsets.ReadOnlyModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = NewsSerializer
+    def list(self, request):
+        queryset = News.objects.all()
+        serializer = NewsSerializer(queryset, many=True)
+        for d in serializer.data:
+            d['text'] = d['text'][:100] + '...'
+        return Response(serializer.data)
 
 
 class ContactViewSet(viewsets.ReadOnlyModelViewSet):
