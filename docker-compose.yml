@@ -1,6 +1,15 @@
 version: '3.4'
 
 services:
+  backend:
+    image: csd
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    env_file:
+      - .env
+
   nginx:
     image: nginx:latest
     restart: unless-stopped
@@ -9,31 +18,21 @@ services:
       - 443:443
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-      - static-content:/usr/share/shared
-    # depends_on:
-    #   - frontend
+      - ./static/:/usr/share/shared/static
+    depends_on:
+      - csd
+      # - frontend
 
-  csd:
-    image: csd
-    restart: unless-stopped
-    build:
-      context: .
-      dockerfile: ./Dockerfile
-    ports:
-      - 8000:8000
-    env_file:
-      - .env
+  # frontend:
+  #   build:
+  #     context: ./frontend
+  #     dockerfile: ./Dockerfile
+  #   ports:
+  #     - 4000:80
+  #   # volumes:
+  #   #   - static-content:/app
+  #   env_file:
+  #     - .env
 
-#   frontend:
-#     build:
-#       context: ./frontend
-#       dockerfile: ./Dockerfile
-#     ports:
-#       - 4000:80
-#     volumes:
-#       - static-content:/app
-#     env_file:
-#       - .env
-
-volumes:
-  static-content:
+# volumes:
+#   static-content:
