@@ -3,6 +3,7 @@ version: '3.4'
 services:
   backend:
     image: csd
+    restart: unless-stopped
     build:
       context: .
       dockerfile: ./Dockerfile
