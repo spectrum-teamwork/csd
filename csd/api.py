@@ -34,8 +34,14 @@ class OrderApiView(APIView):
     def post(self, request: Request, format=None):
         d = Order(**request.data)
         d.save()
+        text = f'''
+        Услуга: {d.service.title if d.service_id is not None else 'Не указана'}
+        Имя: {d.contact_name if d.contact_name is not None else 'Не указано'}
+        E-mail: {d.email if d.email is not None else 'Не указана'} 
+        Телефон: {d.phone if d.phone is not None else 'Не указан'}  
+        Комментарий: {d.comment if d.comment is not None else 'Не указан'}'''
 
-        send_mail('Новая заявка!', 'NTcn', None, [d.contact.email])
+        send_mail('Новая заявка!', text, None, [d.contact.email])
 
         return Response({'status': 'created'}, status=status.HTTP_201_CREATED)
 
