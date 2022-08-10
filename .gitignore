@@ -131,4 +131,4 @@ dmypy.json
 .vscode
 images/
 
-static_content
+static_content/dist

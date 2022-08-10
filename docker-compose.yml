@@ -7,11 +7,13 @@ services:
     build:
       context: .
       dockerfile: ./Dockerfile
-    command: bash -c "gunicorn config.wsgi --bind 0.0.0.0:8000"
+    # command: bash -c "gunicorn config.wsgi --bind 0.0.0.0:8000"
+    command: bash -c "python manage.py runserver"
     volumes:
       - ./static_content/static:/app/static:rw
     env_file:
       - .env
+    network_mode: host
 
   nginx:
     image: nginx:latest
@@ -19,21 +21,19 @@ services:
     # build:
     #   context: ./nginx
     #   dockerfile: ./Dockerfile
-    ports:
-      - 80:80
+    network_mode: host
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
       - ./static_content/:/usr/share/shared:rw
     depends_on:
       - backend
-      # - frontend
+      - frontend
 
   frontend:
     build:
       context: ./frontend
       dockerfile: ./Dockerfile
-    ports:
-      - 8888:8888
+    network_mode: host
     volumes:
       - ./static_content/dist:/app/dist:rw
     env_file:

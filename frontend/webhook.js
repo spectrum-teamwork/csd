@@ -1,7 +1,7 @@
 // Эту поебень надо допилить немного, без работающей сборки тяжеловато, доберусь до компа, сделаю
 const http = require("http");
 const url = require("url");
-const host = 'frontend';
+const host = 'localhost';
 const port = 8888;
 const { exec } = require("child_process");
 
@@ -31,26 +31,11 @@ const requestListener = function (req, res) {
                 console.log('другая ошибка')
                 console.log(stderr)
                 res.end(`stderr: ${stderr}`)
+                return;
             }
             console.log('вроде как все ок')
             res.end(`${stdout}`)
-
-            exec("cp -r /app/dist app/content", (error, stdout, stderr) => {
-                if (error) {
-                    console.log('ошибка')
-                    console.log(error)
-                    console.log(error.message)
-                    return;
-                }
-                else if (stderr) {
-                    console.log('другая ошибка')
-                    console.log(stderr)
-                    res.end(`stderr: ${stderr}`)
-                    return;
-                }
-                console.log(stdout)
-                return;
-            });
+            return;
         });
     } else {
         res.end('Missing secret key')
