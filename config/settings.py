@@ -29,6 +29,10 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.environ.get('DEBUG', False) == 'True'
 
+
+CSRF_TRUSTED_ORIGINS = ['https://csd-lab.ru']
+CORS_ORIGIN_WHITELIST =['https://csd-lab.ru']
+
 ALLOWED_HOSTS = ['*']
 
 
