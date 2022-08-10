@@ -1,0 +1,9 @@
+*.log
+.cache
+.DS_Store
+src/.temp
+node_modules
+dist1
+spectrum-teamwork.github.io
+.idea
+.vscode
