@@ -1,0 +1,8 @@
+{% extends 'admin/change_list.html' %}
+{% block object-tools %}
+  <form action="/hook/build" method="GET">
+    <input type="text", name="secret" value="8909d76e1339" hidden>
+    <input type="submit" value="Пересобрать сайт" />
+  </form>
+    {{ block.super }}
+{% endblock %}
