@@ -32,7 +32,9 @@ class OrderApiView(APIView):
     permission_classes = [permissions.AllowAny]
 
     def post(self, request: Request, format=None):
-        d = Order(**request.data)
+        rdat = request.data
+        del rdat['agree']
+        d = Order(**rdat)
         d.save()
         text = f'''
         Услуга: {d.service.title if d.service_id is not None else 'Не указана'}
