@@ -98,7 +98,7 @@ class News(UUIDMixin):  # Новости
 
 
 class Order(UUIDMixin):  # Заявки
-    service = models.ForeignKey('Service', on_delete=models.DO_NOTHING, blank=True, null=False)
+    service = models.ForeignKey('Service', on_delete=models.DO_NOTHING, blank=True, null=True)
     contact = models.ForeignKey('Contact', on_delete=models.DO_NOTHING)
 
     contact_name = models.CharField(_('contact_name'), max_length=255)

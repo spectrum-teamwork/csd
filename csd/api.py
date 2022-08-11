@@ -34,7 +34,8 @@ class OrderApiView(APIView):
 
     def post(self, request: Request, format=None):
         rdat = request.data
-        del rdat['agree']
+        if rdat.get('agree') is not None:
+            del rdat['agree']
         d = Order(**rdat)
         d.save()
         text = f'''
