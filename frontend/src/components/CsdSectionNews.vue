@@ -21,7 +21,7 @@
                   <div class="post">
                     <div
                       class="post__image"
-                      :style="{backgroundImage: `url('${imageById(node.image_id)}')`}"
+                      :style="{backgroundImage: `url('${normalizeImageSrc(node.image)}')`}"
                     />
                     <div class="post__text-wrapper">
                       <div class="post__heading">
@@ -58,7 +58,7 @@ query {
       node {
         id
         title
-        image_id
+        image
         short_text
       }
     }
@@ -72,11 +72,11 @@ import IconChevronLeft from './icons/IconChevronLeft.vue'
 import IconChevronRight from './icons/IconChevronRight.vue'
 import CsdSliderArrows from './CsdSliderArrows'
 import windowSizeMixin from '../mixins/windowSizeMixin'
-import imageById from '../mixins/imageById'
+import normalizeImageSrc from '../mixins/normalizeImageSrc'
 
 export default {
   name: 'CsdSectionNews',
-  mixins: [windowSizeMixin, imageById],
+  mixins: [windowSizeMixin, normalizeImageSrc],
   components: { CsdSliderArrows, IconChevronRight, IconChevronLeft },
   data() {
     return {

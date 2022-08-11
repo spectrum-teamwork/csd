@@ -4,7 +4,7 @@
       <csd-news-post
         :title="$page.news.title"
         :content="$page.news.text"
-        :image-id="$page.news.image_id"
+        :image="$page.news.image"
       />
     </template>
   </Layout>
@@ -15,7 +15,7 @@ query ($newsId: ID) {
     id
     title
     text
-    image_id
+    image
   }
 }
 </page-query>

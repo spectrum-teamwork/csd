@@ -24,7 +24,7 @@
                     :name="node.title"
                     :to="`/services/${node.id}`"
                     :icon="icons[node.service_type]"
-                    :image="imageById(node.image_id)"
+                    :image="normalizeImageSrc(node.image)"
                   />
                 </div>
               </template>
@@ -66,7 +66,7 @@ query {
       node {
         id
         title
-        image_id
+        image
         service_type
       }
     }
@@ -81,11 +81,11 @@ import IconChevronLeft from './icons/IconChevronLeft'
 import IconChevronRight from './icons/IconChevronRight'
 import CsdSliderArrows from './CsdSliderArrows'
 import windowSizeMixin from '../mixins/windowSizeMixin'
-import imageById from '../mixins/imageById'
+import normalizeImageSrc from '../mixins/normalizeImageSrc'
 
 export default {
   name: 'CsdSectionServices',
-  mixins: [windowSizeMixin, imageById],
+  mixins: [windowSizeMixin, normalizeImageSrc],
   components: { CsdSliderArrows, IconChevronRight, IconChevronLeft, CsdServicesItem },
   data() {
     return {

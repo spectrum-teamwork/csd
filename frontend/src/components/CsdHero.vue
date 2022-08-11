@@ -3,8 +3,8 @@
     <div class="row">
       <div class="col-12 col-lg-8 col-xxl-6">
         <div class="hero">
-          <h1 class="hero__title" v-html="$static.hero.title"/>
-          <p class="hero__description" v-html="$static.hero.text"/>
+          <h1 class="hero__title" v-html="$static.allHero.edges[0].node.title"/>
+          <p class="hero__description" v-html="$static.allHero.edges[0].node.text"/>
           <div class="hero__actions">
             <div @click="handleModalLeaveOrderOpen" class="button button__order">Заказать</div>
             <span @click="handleModalConsultationOpen" class="hero__link">Проконсультироваться</span>
@@ -26,9 +26,13 @@
 </template>
 <static-query>
 query {
-  hero(id: "1") {
-    title
-    text
+  allHero {
+    edges {
+      node {
+        title
+        text
+      }
+    }
   }
 }
 </static-query>

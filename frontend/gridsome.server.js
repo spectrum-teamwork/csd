@@ -12,7 +12,7 @@ const urls = {
   news: `${server}/news`,
   clients: `${server}/clients`,
   regions: `${server}/main/contacts`,
-  hero: `${server}/main/title`,
+  hero: `${server}/main/info`,
   services: `${server}/services`,
   accreditationInfo: `${server}/accreditation/info`,
   accreditationCertificates: `${server}/accreditation/certificates`
@@ -21,6 +21,10 @@ const urls = {
 module.exports = async function (api) {
   api.configureServer(app => {
     app.use(createProxyMiddleware('/api/v1', {
+      target: process.env.GRIDSOME_API_HOST,
+      changeOrigin: true
+    }))
+    app.use(createProxyMiddleware('/images/', {
       target: process.env.GRIDSOME_API_HOST,
       changeOrigin: true
     }))
@@ -54,7 +58,7 @@ module.exports = async function (api) {
 
     const hero = actions.addCollection({ typeName: 'Hero' })
     const _hero = await axios.get(urls.hero)
-    hero.addNode({ id: 1, ..._hero.data })
+    _hero.data.forEach((h) => hero.addNode(h))
 
     const _requisites = actions.addCollection({ typeName: 'Requisites' })
     _requisites.addNode({
@@ -66,7 +70,7 @@ module.exports = async function (api) {
 
     const accreditationInfo = actions.addCollection({ typeName: 'AccreditationInfo' })
     const _accreditationInfo = await axios.get(urls.accreditationInfo)
-    accreditationInfo.addNode({ id: 1, ..._accreditationInfo.data })
+    _accreditationInfo.data.forEach((info) => accreditationInfo.addNode(info))
   })
 
   api.createPages(async ({ graphql, createPage }) => {

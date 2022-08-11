@@ -5,7 +5,7 @@
         :price="$page.services.price"
         :heading="$page.services.title"
         :content="$page.services.description"
-        :cert-image="imageById($page.services.image_document_id)"
+        :cert-image="normalizeImageSrc($page.services.image_document)"
         :requirements="$page.services.requirements"
         :requirements-heading="requirementsHeadings[$page.services.service_type]"
       />
@@ -21,7 +21,7 @@ query ($serviceId: ID) {
     description
     service_type
     requirements
-    image_document_id
+    image_document
   }
 }
 </page-query>
@@ -30,11 +30,11 @@ import CsdPageFooter from '~/components/CsdPageFooter'
 import CsdHeader from '~/components/CsdHeader'
 import CsdBackwardButton from '~/components/CsdBackwardButton'
 import CsdServicePost from '../../components/CsdServicePost'
-import imageById from '../../mixins/imageById'
+import normalizeImageSrc from '../../mixins/normalizeImageSrc'
 
 export default {
   name: 'Service',
-  mixins: [imageById],
+  mixins: [normalizeImageSrc],
   data() {
     return {
       requirementsHeadings: {

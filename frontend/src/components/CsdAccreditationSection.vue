@@ -4,8 +4,8 @@
       <div class="row">
         <div class="col-12 col-lg-4">
           <div class="accreditation__wrapper">
-            <h2 v-html="$static.accreditationInfo.title"/>
-            <p class="accreditation__description" v-html="$static.accreditationInfo.text"/>
+            <h2 v-html="$static.allAccreditationInfo.edges[0].node.title"/>
+            <p class="accreditation__description" v-html="$static.allAccreditationInfo.edges[0].node.text"/>
             <csd-slider-arrows
               @prev="handleSlidePrev"
               @next="handleSlideNext"
@@ -21,7 +21,7 @@
                   <div class="certificate">
                     <div
                       class="certificate__image"
-                      :style="{backgroundImage: `url('${imageById(node.image_id)}')`}"
+                      :style="{backgroundImage: `url('${normalizeImageSrc(node.image)}')`}"
                     />
                     <p class="certificate__name">{{ node.label }}</p>
                   </div>
@@ -50,13 +50,17 @@ query {
       node {
         id
         label
-        image_id
+        image
       }
     }
   }
-  accreditationInfo(id: "1") {
-    title
-    text
+  allAccreditationInfo {
+    edges {
+      node {
+        title
+        text
+      }
+    }
   }
 }
 </static-query>
@@ -65,11 +69,11 @@ import Swiper from 'swiper'
 import 'swiper/swiper.scss'
 import CsdSliderArrows from './CsdSliderArrows'
 import windowSizeMixin from '../mixins/windowSizeMixin'
-import imageById from '../mixins/imageById'
+import normalizeImageSrc from '../mixins/normalizeImageSrc'
 
 export default {
   name: 'CsdAccreditationSection',
-  mixins: [windowSizeMixin, imageById],
+  mixins: [windowSizeMixin, normalizeImageSrc],
   components: { CsdSliderArrows },
   data() {
     return {
