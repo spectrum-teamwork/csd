@@ -6,7 +6,7 @@
         <div class="col-12">
           <g-image quality="80"
             class="d-xl-none mb-5"
-            :src="normalizeImageSrc(image)"
+            :src="imageById(imageId)"
             style="width: 100%; object-fit: contain; border-radius: 20px; overflow: hidden;"
           />
         </div>
@@ -16,7 +16,7 @@
         <div class="col-xl-5">
           <g-image quality="80"
             class="d-none d-xl-flex"
-            :src="normalizeImageSrc(image)"
+            :src="imageById(imageId)"
             style="width: 100%; object-fit: contain; border-radius: 20px; overflow: hidden;"
           />
         </div>
@@ -27,12 +27,12 @@
 
 <script>
 import CsdPostHeader from './CsdPostHeader'
-import normalizeImageSrc from '../mixins/normalizeImageSrc'
+import imageById from '../mixins/imageById'
 
 export default {
   name: 'CsdServicePost',
   components: { CsdPostHeader },
-  mixins: [normalizeImageSrc],
+  mixins: [imageById],
   props: {
     title: {
       type: String,
@@ -42,7 +42,7 @@ export default {
       type: String,
       required: true
     },
-    image: {
+    imageId: {
       type: String,
       required: true
     },

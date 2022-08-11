@@ -6,4 +6,14 @@
 
 module.exports = {
   siteName: 'ЦСД - Центр сертификации и декларирования',
+  plugins: [
+    {
+      use: '@gridsome/plugin-critical',
+      options: {
+        paths: ['/', '/about', '/clients', '/contacts', '/news', '/prices'],
+        width: 320,
+        height: 640
+      }
+    }
+  ]
 }

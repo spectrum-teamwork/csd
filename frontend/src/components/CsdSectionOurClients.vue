@@ -26,7 +26,7 @@
                       <div class="client__image">
                         <g-image quality="80"
                           :alt="node.title"
-                          :src="normalizeImageSrc(node.image)"
+                          :src="imageById(node.image_id)"
                         />
                       </div>
                     </div>
@@ -56,7 +56,7 @@ query {
       node {
         id
         title
-        image
+        image_id
       }
     }
   }
@@ -69,11 +69,11 @@ import IconChevronLeft from './icons/IconChevronLeft.vue'
 import IconChevronRight from './icons/IconChevronRight.vue'
 import CsdSliderArrows from './CsdSliderArrows'
 import windowSizeMixin from '../mixins/windowSizeMixin'
-import normalizeImageSrc from '../mixins/normalizeImageSrc'
+import imageById from '../mixins/imageById'
 
 export default {
   name: 'CsdSectionOurClients',
-  mixins: [windowSizeMixin, normalizeImageSrc],
+  mixins: [windowSizeMixin, imageById],
   components: { CsdSliderArrows, IconChevronRight, IconChevronLeft },
   data() {
     return {
