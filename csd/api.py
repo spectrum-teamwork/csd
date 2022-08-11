@@ -30,6 +30,7 @@ class AccreditationInfotApiView(APIView):
 
 class OrderApiView(APIView):
     permission_classes = [permissions.AllowAny]
+    authentication_classes = []
 
     def post(self, request: Request, format=None):
         rdat = request.data
