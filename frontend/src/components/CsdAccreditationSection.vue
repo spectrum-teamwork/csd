@@ -15,7 +15,7 @@
         </div>
         <div class="offset-lg-1 col-12 col-lg-7">
           <div class="swiper swiper-certificates">
-            <div class="swiper-wrapper pb-1">
+            <div class="swiper-wrapper pb-1" v-if="$static.allCertificates.length > 0">
               <template v-for="{node} in $static.allCertificates.edges">
                 <div class="swiper-slide">
                   <div class="certificate">

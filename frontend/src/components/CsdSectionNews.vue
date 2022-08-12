@@ -15,7 +15,7 @@
       <div class="row mt-5">
         <div class="col-12">
           <div class="swiper swiper-news">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" v-if="$static.allNews.edges.length > 0">
               <template v-for="{node} in $static.allNews.edges">
                 <div class="swiper-slide d-flex align-items-stretch">
                   <div class="post">

@@ -17,7 +17,7 @@
       <div class="row services__list">
         <div class="col-12">
           <div class="swiper swiper-services pb-3 pt-5 mx-n1 px-sm-3 mx-sm-n3">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" v-if="$static.allServices.edges.length > 0">
               <template v-for="{node} in $static.allServices.edges">
                 <div class="swiper-slide d-flex align-items-stretch">
                   <csd-services-item

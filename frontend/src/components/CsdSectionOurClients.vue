@@ -18,13 +18,14 @@
       <div class="row mt-5">
         <div class="col-12">
           <div class="swiper swiper-clients">
-            <div class="swiper-wrapper">
+            <div class="swiper-wrapper" v-if="$static.allClients.edges.length > 0">
               <template v-for="{node} in $static.allClients.edges">
                 <div class="swiper-slide d-flex align-self-stretch">
                   <div class="client align-self-stretch">
                     <div class="client__logo">
                       <div class="client__image">
-                        <g-image quality="80"
+                        <g-image
+                          quality="80"
                           :alt="node.title"
                           :src="normalizeImageSrc(node.image)"
                         />
