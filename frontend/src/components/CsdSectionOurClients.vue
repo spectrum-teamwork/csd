@@ -1,7 +1,7 @@
 <template>
   <section class="our-clients" id="clients">
     <div class="container">
-      <div class="circle"/>
+      <div class="circle d-none d-md-block"/>
       <div class="row">
         <div :class="[{'col-10': windowSize.width>breakpoint, 'col-12': windowSize.width<=breakpoint}]">
           <h2 class="our-clients__heading">Наши клиенты</h2>
